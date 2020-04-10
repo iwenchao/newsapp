@@ -17,11 +17,8 @@ import cn.iwenchaos.newsapp.interfaces.IDefinedView
 
 abstract class BaseViewActivity : AppCompatActivity(), IDefinedView, IAboveView {
 
+    protected var rootView: View? = null;
 
-
-    override fun beforeBindView() {
-        Log.i(TAG, "javaClass=$TAG")
-    }
 
     protected fun beforeOnCreate(savedInstanceState: Bundle?) {
 
@@ -31,18 +28,11 @@ abstract class BaseViewActivity : AppCompatActivity(), IDefinedView, IAboveView 
         beforeOnCreate(savedInstanceState)
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+        rootView = window.decorView.rootView
         afterOnCreate(savedInstanceState)
     }
 
     protected fun afterOnCreate(savedInstanceState: Bundle?) {
-
-    }
-
-    override fun bindView(rootView: View?) {
-    }
-
-
-    override fun afterBindView(rootView: View?, onSaveInstanceBundle: Bundle) {
 
     }
 

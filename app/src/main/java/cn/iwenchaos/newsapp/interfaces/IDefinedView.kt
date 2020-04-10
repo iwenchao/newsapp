@@ -20,6 +20,6 @@ interface IDefinedView {
 
     fun beforeBindView()
     fun bindView(rootView: View?)
-    fun afterBindView(rootView: View?, onSaveInstanceBundle: Bundle)
+    fun afterBindView(rootView: View?, onSaveInstanceBundle: Bundle?)
 
 }
