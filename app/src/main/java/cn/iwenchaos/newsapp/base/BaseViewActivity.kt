@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import cn.iwenchaos.newsapp.interfaces.IAboveView
 import cn.iwenchaos.newsapp.interfaces.IDefinedView
 
@@ -14,6 +16,7 @@ import cn.iwenchaos.newsapp.interfaces.IDefinedView
  */
 
 abstract class BaseViewActivity : AppCompatActivity(), IDefinedView, IAboveView {
+
 
 
     override fun beforeBindView() {
@@ -27,7 +30,7 @@ abstract class BaseViewActivity : AppCompatActivity(), IDefinedView, IAboveView 
     override fun onCreate(savedInstanceState: Bundle?) {
         beforeOnCreate(savedInstanceState)
         super.onCreate(savedInstanceState)
-
+        setContentView(getLayoutId())
         afterOnCreate(savedInstanceState)
     }
 
