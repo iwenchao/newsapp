@@ -1,4 +1,4 @@
-package cn.iwenchaos.newsapp.utils
+package cn.iwenchaos.newsapp.util
 
 import android.content.Context
 import cn.iwenchaos.newsapp.module.main.MainActivity

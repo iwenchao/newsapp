@@ -20,7 +20,7 @@ abstract class BaseViewActivity : AppCompatActivity(), IDefinedView, IAboveView 
     protected var rootView: View? = null;
 
 
-    protected fun beforeOnCreate(savedInstanceState: Bundle?) {
+    open fun beforeOnCreate(savedInstanceState: Bundle?) {
 
     }
 
@@ -32,7 +32,7 @@ abstract class BaseViewActivity : AppCompatActivity(), IDefinedView, IAboveView 
         afterOnCreate(savedInstanceState)
     }
 
-    protected fun afterOnCreate(savedInstanceState: Bundle?) {
+    open fun afterOnCreate(savedInstanceState: Bundle?) {
 
     }
 
@@ -40,6 +40,10 @@ abstract class BaseViewActivity : AppCompatActivity(), IDefinedView, IAboveView 
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
 
     companion object {
         val TAG = BaseViewActivity::class.java.simpleName

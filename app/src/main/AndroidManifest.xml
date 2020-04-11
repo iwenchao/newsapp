@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.iwenchaos.newsapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:name=".base.NewsApp"
         android:allowBackup="true"
@@ -11,15 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".module.welcome.SplashActivity" >
+        <activity android:name=".module.welcome.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.main.MainActivity">
-        </activity>
+        <activity android:name=".module.main.MainActivity" />
+
     </application>
 
 </manifest>
