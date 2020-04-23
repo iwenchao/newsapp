@@ -6,6 +6,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
+import cn.iwenchaos.newsapp.util.KeyboardHelper
 
 /**
  * Created by:  awen on 2020/4/9  10:50 AM
@@ -39,6 +40,11 @@ abstract class BaseNewsActivity<B : ViewDataBinding> : BaseViewActivity() {
 
     override fun afterBindView(rootView: View?, onSaveInstanceBundle: Bundle?) {
 
+    }
+
+    override fun onDestroy() {
+        KeyboardHelper.fixInputMethodManagerLeak(this)
+        super.onDestroy()
     }
 
 

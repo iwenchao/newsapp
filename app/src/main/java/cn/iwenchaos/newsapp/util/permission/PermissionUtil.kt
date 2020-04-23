@@ -16,14 +16,8 @@ class PermissionUtil {
 
     companion object {
 
-        private const val PERMISSION_REQUEST_CODE = 100;
+        const val PERMISSION_REQUEST_CODE = 100;
 
-        val BASE_PERMISSIONS = arrayOf(
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.INTERNET
-        )
 
         @JvmStatic
         fun checkPermissions(context: Context, permissions: Array<String>): List<String> {
@@ -41,9 +35,9 @@ class PermissionUtil {
             return lackPermissions
         }
 
-        fun requestPermissions(activity: Context, permissions: Array<String>) {
+        fun requestPermissions(activity: Context, permissions: Array<String>, requestCode: Int = PERMISSION_REQUEST_CODE) {
             if (activity is Activity) {
-                ActivityCompat.requestPermissions(activity, permissions, PERMISSION_REQUEST_CODE)
+                ActivityCompat.requestPermissions(activity, permissions, requestCode)
             }
         }
 

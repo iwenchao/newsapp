@@ -1,6 +1,8 @@
 package cn.iwenchaos.newsapp.module.welcome
 
+import android.Manifest
 import android.animation.Animator
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
@@ -10,7 +12,6 @@ import cn.iwenchaos.newsapp.databinding.ActivitySplashBinding
 import cn.iwenchaos.newsapp.module.welcome.listener.LocalAnimatorListener
 import cn.iwenchaos.newsapp.util.Router
 import cn.iwenchaos.newsapp.util.permission.PermissionUtil
-import cn.iwenchaos.newsapp.util.permission.PermissionUtil.Companion.BASE_PERMISSIONS
 import kotlinx.android.synthetic.main.activity_splash.*
 
 /**
@@ -50,13 +51,32 @@ class SplashActivity : BaseNewsActivity<ActivitySplashBinding>() {
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(PermissionUtil.PERMISSION_REQUEST_CODE == requestCode){
+            val denies = mutableListOf<String>()
+            for(index in grantResults.indices){
+                if(grantResults[index]== PackageManager.PERMISSION_DENIED){
+                    denies.add(permissions[index])
+                }
+            }
+            denies.isNotEmpty().run {
 
+            }
+        }
     }
+
+    companion object {
+        val BASE_PERMISSIONS = arrayOf(
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.INTERNET,
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.ACCESS_WIFI_STATE,
+            Manifest.permission.ACCESS_NETWORK_STATE
+        )
+    }
+
 
 }

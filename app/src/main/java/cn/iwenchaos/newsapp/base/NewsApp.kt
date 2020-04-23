@@ -2,6 +2,7 @@ package cn.iwenchaos.newsapp.base
 
 import android.app.Application
 import android.content.Context
+import cn.iwenchaos.newsapp.util.ActivityHelper
 
 /**
  * Created by:  awen on 2020/4/3  1:38 PM
@@ -9,7 +10,7 @@ import android.content.Context
  * Describe  :
  */
 
-class NewsApp : Application(){
+class NewsApp : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
@@ -19,6 +20,7 @@ class NewsApp : Application(){
     override fun onCreate() {
         super.onCreate()
 
+        ActivityHelper.init(this)
     }
 
 }
